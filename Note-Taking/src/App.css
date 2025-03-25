@@ -1,6 +1,7 @@
 .main{
     width: 700px;
     margin: auto;
+    position: relative;
 }
 
 .header_div {
@@ -14,6 +15,7 @@
 }
 
 .header_div h4 {
+    text-decoration: underline;
     text-align: center;
     margin: 0;
     font-size: 24px;
@@ -29,24 +31,192 @@
 
 .addNote{
     position: fixed;
-    bottom: 20px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: tomato;
+    cursor: pointer;
 }
 
 .addNote span{
-    font-size: 30px;
+    font-size: 28px;
     color: white;
 }
 
-@media (max-width: 700px) {
+.addNotesDiv{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 700px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: -8px;
+    background-color: #eae2b7;
+}
+
+.addNotesDiv_top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    margin-top: -11px;
+}
+
+.addNotesDiv_top span{
+    cursor: pointer;
+    font-size: 28px;
+}
+
+.addNotesDiv_top h3{
+    font-size: 24px;
+    text-decoration: underline;
+    color: #003049;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.noteTitle {
+    cursor: pointer;
+    width: 96%;
+    padding: 10px;
+    padding-right: 23px;
+    margin-top: 10px;
+    font-size: 18px; 
+    border: none;
+    font-weight: bold;
+    border-bottom: 1px solid #ffffff;
+    background-color: transparent;
+    outline: none;
+    margin-bottom: 12px;
+}
+
+.noteContent {
+    width: 96%;
+    height: 100px;
+    padding: 10px;
+    overflow-y: scroll;
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+::placeholder{
+    color: black;
+}
+
+.showNotesDiv{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.showNotes {
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.defaultNotes{
+    margin-top: 2px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    box-sizing: border-box;
+    height: 150px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.showNotes,
+.defaultNotes {
+    flex: 1 1 calc(33.33% - 10px);
+    min-width: 200px;
+    height: auto;
+    min-height: 150px;
+    max-height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+}
+
+.showNotesDiv h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.showNotesDiv p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0d1321;
+    font-size: 13px;
+}
+
+.noAvailableNotes {
+    font-size: 19px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 140px;
+    text-align: center;
+  }
+  
+  .searchInput {
+    background-color: #eae2b7;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.q1s ease-in-out;
+    cursor: pointer;
+    margin-top: 14px;
+}
+
+.searchInput input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    background: transparent;
+}
+
+.searchInput .material-symbols-outlined {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    background-color: #0d1321;
+    border-radius: 0px 25px 25px 0px;
+    padding: 10px;
+    padding-left: 8px;
+    cursor: pointer;
+}
+
+.note_features{
+    display: flex;
+    align-items: right;
+    gap: 10px;
+}
+
+.note_features span {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+@media (max-width: 720px) {
     .main{
         width: 100%;
     }
@@ -55,5 +225,57 @@
     }
     .header_div span {
         font-size: 30px;
+    }
+    .addNotesDiv{
+        width: 100%;
+        position: fixed;
+        margin-top: 0px;
+    }
+    .addNotesDiv_top{
+        margin-top: -6px;
+    }
+    .addNotesDiv_top h3{
+        font-size: 19.2px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .searchInput {
+        max-width: 100%;
+    }
+
+    .searchInput input {
+        font-size: 14px;
+    }
+
+    .searchInput .material-symbols-outlined {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .showNotes,
+    .defaultNotes {
+        flex: 1 1 calc(33.33% - 10px);
+    }
+}
+
+@media(width<400px){
+    .noteTitle{
+        width: 94%;
+    }
+    .noteContent{
+        width: 94%;
+    }
+}
+
+@media(width<260px){
+    .searchInput input {
+        font-size: 12px;
+    }
+
+    .searchInput .material-symbols-outlined {
+        font-size: 16px;
     }
 }
